@@ -10,3 +10,6 @@ The app is to assist the activity of the department (Physics, NTU). On 2017/4/8,
 
 My contribution is to develop the frontend as well as some of the backend p, incluing the data processing and how to store data efficiently, and how to corporate with the activity, including putting advertisement for funding and using QR code to have fun.
 
+
+![image](https://github.com/YanChengWeiTony/Physics-Night/blob/main/imag.png)
+
