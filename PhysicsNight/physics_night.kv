@@ -1,0 +1,403 @@
+#:import RiseInTransition kivy.uix.screenmanager.RiseInTransition
+#:import TextInput kivy.uix.textinput.TextInput
+#:import GridLayout kivy.uix.gridlayout
+#:import C kivy.utils.get_color_from_hex
+#:import Config kivy.config.Config
+#:import ToggleButton kivy.uix.togglebutton 
+#:import Image kivy.uix.image
+
+<UpperBarLabel@Label>:
+    font_name: 'Roboto'
+    font_size: 22
+    markup: True
+
+<LineButton@RadioButton>:
+	group: 'p_line'
+	background_normal: "gray_dot.png"
+	background_down: "blue_dot.png"
+
+<BottumButton@RadioButton>:
+	group: 'bottum'
+
+
+<StoryLabel@Label>:
+    halign: 'left'
+    valign: 'top'
+    color: C('#FFFFFF')
+    markup: True
+    text_size: (self.width, None) # Step 1
+    size_hint: (1, None) # Step 2
+    height: self.texture_size[1] # Step 3
+
+<ChineseStoryLabel@Label>:
+	font_name: 'STHeiti Medium.ttc'
+	halign: 'left'
+	valign: 'top'
+	color: C('#FFFFFF')
+	markup: True
+	text_size: (self.width, None) # Step 1
+	size_hint: (1, None) # Step 2
+	height: self.texture_size[1] # Step 3
+
+
+<P_coinLabel@Label>:
+    color: C('#FFFFFF')
+	font_size: 300
+ 
+
+
+<ScreenManager>:
+    transition: RiseInTransition()
+    Screen_Canvas:
+    	id: id_login
+    	name: 'login'
+    	BoxLayout:
+			orientation: 'vertical'
+			GridLayout:
+				cols: 1
+				rows: 4
+				spacing: 60
+				padding: 60 
+
+				Label: 
+					font_size: 80
+					text: 'Mail:'
+				TextInput:
+					font_size: 40
+					id: mail
+					text: 'input your mail'
+				Label:
+					font_size: 80
+					text: 'Nickname:'
+				TextInput:
+					font_size: 40
+					id: nickname
+					text: 'input your login name'
+
+			Button:
+				font_size: 100
+				text: 'Start!'
+				on_press:
+					app.start_game() 
+					root.current = 'Home'
+ 
+	Screen_Canvas:
+		id: id_home 
+		name: 'Home'        
+	    canvas.before:
+    	    BorderImage:
+        	    # BorderImage behaves like the CSS BorderImage
+            	texture: self.background_image.texture
+            	pos: self.pos
+            	size: self.size
+		BoxLayout:
+			x: 0.38 * self.width 
+			y: 0.445 * self.height
+			UpperBarLabel:
+				id: time
+				color: 0, 0, 0
+				text: '00:00:00'
+		BoxLayout:
+			x: -0.35 * self.width 
+			y: 0.445 * self.height
+			UpperBarLabel:
+				id: money
+				color: 0, 0, 0
+				text: '0000'
+		BottumButton:
+			id: bottum_1
+			x: 0.15 * root.width
+			y: 0
+			size: [0.15 * root.width, 0.12 * root.width]
+			size_hint: (None, None)
+			background_normal: "story.png"
+			background_down: "story_shadow.png"
+			state: 'down'
+			on_press:
+				app.change_state(1)
+		BottumButton:
+			id: bottum_2
+			x: 0.46 * root.width
+			y: 0
+			size: [0.15 * root.width, 0.12 * root.width]
+			size_hint: (None, None)
+			background_normal: "treasure_black.png"
+			background_down: "treasure_color.png"
+			on_press:
+				app.treasure()
+		BottumButton:
+			id: bottum_3
+			x: 0.75 * root.width
+			y: 0
+			size: [0.15 * root.width, 0.12 * root.width]
+			size_hint: (None, None)
+			background_normal: "Pcoin.png"
+			background_down: "Pcoin_shadow.png"
+			on_press: 
+				#root.ids.canvas_state.source:"timer.png"
+				app.change_state(2)
+		LineButton:
+			id: p_line_01 
+			size: (0.1 * root.width, 0.08 * root.height)
+			size_hint: (None, None)
+			x: 0.24 * root.width
+			y: 0.185 * root.height
+			state: 'down'
+			on_release:
+				app.change_dot(1)
+		LineButton:
+			id: p_line_02
+			size: (0.1 * root.width, 0.08 * root.height)
+			size_hint: (None, None)
+			x: 0.05 * root.width
+			y: 0.42 * root.height
+			on_release:
+				app.change_dot(2)
+		LineButton:
+			id: p_line_03
+			size: (0.1 * root.width, 0.08 * root.height)
+			size_hint: (None, None)
+			x: 0.23 * root.width
+			y: 0.58 * root.height
+			on_release:
+				app.change_dot(3)
+		LineButton:
+			id: p_line_04
+			size: (0.1 * root.width, 0.08 * root.height)
+			size_hint: (None, None)
+			x: 0.18 * root.width
+			y: 0.745 * root.height
+			on_release:
+				app.change_dot(4)
+		LineButton:
+			id: p_line_05
+			size: (0.1 * root.width, 0.08 * root.height)
+			size_hint: (None, None)
+			x: 0.45 * root.width
+			y: 0.80 * root.height
+			on_release:
+				app.change_dot(5)
+		LineButton:
+			id: p_line_06
+			size: (0.1 * root.width, 0.08 * root.height)
+			size_hint: (None, None)
+			x: 0.55 * root.width
+			y: 0.68 * root.height
+			on_release:
+				app.change_dot(6)
+		LineButton:
+			id: p_line_07
+			size: (0.1 * root.width, 0.08 * root.height)
+			size_hint: (None, None)
+			x: 0.75 * root.width
+			y: 0.80 * root.height
+			on_release:
+				app.change_dot(7)
+		LineButton:
+			id: p_line_08
+			size: (0.1 * root.width, 0.08 * root.height)
+			size_hint: (None, None)
+			x: 0.86 * root.width
+			y: 0.62 * root.height
+			on_release:
+				app.change_dot(8)
+		LineButton:
+			id: p_line_09
+			size: (0.1 * root.width, 0.08 * root.height)
+			size_hint: (None, None)
+			x: 0.68 * root.width
+			y: 0.54 * root.height
+			on_release:
+				app.change_dot(9)
+		LineButton:
+			id: p_line_10
+			size: (0.1 * root.width, 0.08 * root.height)
+			size_hint: (None, None)
+			x: 0.75 * root.width
+			y: 0.45 * root.height
+			on_release:
+				app.change_dot(10)
+		LineButton:
+			id: p_line_11
+			size: (0.1 * root.width, 0.08 * root.height)
+			size_hint: (None, None)
+			x: 0.37 * root.width
+			y: 0.47 * root.height
+			on_release:
+				app.change_dot(11)
+		LineButton:
+			id: p_line_12
+			size: (0.1 * root.width, 0.08 * root.height)
+			size_hint: (None, None)
+			x: 0.32 * root.width
+			y: 0.35 * root.height
+			on_release:
+				app.change_dot(12)
+
+
+	Screen_Canvas:
+		name: 'Story_page'
+		BoxLayout:
+			ScrollView:
+			    canvas.before:
+        			Color:
+            			rgb: 0, 0, 0
+        			Rectangle:
+            			pos: self.pos
+            			size: self.size
+				ChineseStoryLabel:
+					id: StoryWindow
+					text: ''
+		Button:
+			size: (.3 * root.width, .06 * root.height)
+			size_hint: (None, None)
+			background_normal: 'back.png'
+			background_down: 'back.png'
+			x: root.width - self.size[0]
+			y: root.height - self.size[1]
+			on_press: app.remove_busy(1)
+	Screen_Canvas:
+		id: id_p_coin_exchange 
+		name: 'P_coin_exchange'
+		BoxLayout:
+			orientation: 'vertical'
+			Label:
+            	text: "Shopping Mall"
+            	font_size: 80
+            	height: .1 * root.height
+            	size_hint: (1, None)
+
+			
+			ScrollView:
+			    canvas.before:
+        			Color:
+            			rgb: 0.4, 0.4, 0.4
+        			Rectangle:
+            			pos: self.pos
+            			size: self.size
+
+				GridLayout:
+					size_hint_y: None
+					cols: 2
+					spacing: 0.03 * root.height
+					padding: 0.1 * root.width
+					height: self.minimum_height
+					row_default_height: 500
+					row_default_width: 0.5 * self.width
+					row_force_default: True
+					BoxLayout:
+						orientation: 'vertical'
+						Button:
+							background_normal: "timer.png"
+							background_down: "timer.png"
+							on_press: app.P_coin_exchange(30, 0)
+						Label:
+							id: product_0
+							font_name: 'STHeiti Medium.ttc'
+							text: '星巴克抹茶咖啡 ＄30 P幣\n 剩餘數量： '
+							font_size: 40
+
+					P_coinLabel:
+						text: '1'
+					P_coinLabel:
+						text: '2'
+					P_coinLabel:
+						text: '3'
+					P_coinLabel:
+						text: '4'
+					P_coinLabel:
+						text: '5'
+					P_coinLabel:
+						text: '6'
+					P_coinLabel:
+						text: '7'
+					P_coinLabel:
+						text: '8'
+
+		Button:
+			size: (.3 * root.width, .06 * root.height)
+			size_hint: (None, None)
+			background_normal: 'back.png'
+			background_down: 'back.png'
+			x: root.width - self.size[0]
+			y: root.height - self.size[1]
+			on_press: app.change_state(1)
+
+		Button:
+			size: (.3 * root.width, .06 * root.height)
+			size_hint: (None, None)
+			text: 'check your processions'
+			background_color: C('#FF0000')
+			x: 0
+			y: root.height - self.size[1]
+			on_press: 
+				root.current = 'Your_Processions'
+				app.processions('in')
+
+	Screen_Canvas:
+		id: id_your_processions
+		name: 'Your_Processions'
+		BoxLayout:
+			orientation: 'vertical'
+			Label:
+            	text: "Your Processions"
+            	font_size: 80
+            	height: .1 * root.height
+            	size_hint: (1, None)
+
+			ScrollView:
+			    canvas.before:
+        			Color:
+            			rgb: 0, 0, 0
+        			Rectangle:
+            			pos: self.pos
+            			size: self.size
+
+				GridLayout:
+					size_hint_y: None
+					cols: 2
+					spacing: 0.03 * root.height
+					padding: 0.1 * root.width
+					height: self.minimum_height
+					row_default_height: 500
+					row_default_width: 0.5 * self.width
+					row_force_default: True
+					BoxLayout:
+						orientation: 'vertical'
+						Button:
+							background_normal: "timer.png"
+							background_down: "timer.png"
+						Label:
+							id: processions_0
+							font_name: 'STHeiti Medium.ttc'
+							text: '星巴克抹茶咖啡 ＄30 P幣\n我有的數量: '
+							font_size: 40
+
+					P_coinLabel:
+						text: '1'
+					P_coinLabel:
+						text: '2'
+					P_coinLabel:
+						text: '3'
+					P_coinLabel:
+						text: '4'
+					P_coinLabel:
+						text: '5'
+					P_coinLabel:
+						text: '6'
+					P_coinLabel:
+						text: '7'
+					P_coinLabel:
+						text: '8'
+
+		Button:
+			size: (.3 * root.width, .06 * root.height)
+			size_hint: (None, None)
+			background_normal: 'back.png'
+			background_down: 'back.png'
+			x: root.width - self.size[0]
+			y: root.height - self.size[1]
+			on_press:
+				app.processions('out') 
+				root.current = 'P_coin_exchange'
+

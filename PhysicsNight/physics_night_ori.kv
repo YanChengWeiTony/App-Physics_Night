@@ -1,0 +1,220 @@
+#:import RiseInTransition kivy.uix.screenmanager.RiseInTransition
+#:import TextInput kivy.uix.textinput.TextInput
+#:import GridLayout kivy.uix.gridlayout
+#:import C kivy.utils.get_color_from_hex
+#:import Config kivy.config.Config
+#:import ToggleButton kivy.uix.togglebutton 
+
+<UpperBarLabel@Label>:
+    font_name: 'Roboto'
+    font_size: 25
+    markup: True
+
+<LineButton@ToggleButton>:
+	group: 'p_line'
+	background_normal: "gray_dot.png"
+	background_down: "blue_dot.png"
+
+<BottumButton@ToggleButton>:
+	group: 'bottum'
+
+<ScreenManager>:
+    transition: RiseInTransition()
+	Screen_Canvas:
+		id: id_home 
+		name: 'home'        
+	    canvas.before:
+    	    BorderImage:
+        	    # BorderImage behaves like the CSS BorderImage
+            	texture: self.background_image.texture
+            	pos: self.pos
+            	size: self.size
+		canvas:
+			Color:
+				rgb: 1, 1, 1
+			Rectangle:
+				pos: [0, .110 * self.height]
+				size: [self.width, 0.72 * self.height]
+				source: "p_line.png"
+			Rectangle: 
+				pos: [0, 0.905 * self.height]
+				size: [self.width, 0.095 * self.height]
+				source: "bar_upper.png"
+
+			Rectangle: 
+				pos: [0, 0]
+				size: [self.width, 0.12 * self.height]
+				source: "bar_bottom.png"
+
+			Rectangle: 
+				pos: [0.00833 * self.width, 0.925 * self.height]
+				size: [0.30 * self.width, 0.040 * self.height]
+				source: "wallet.png"
+
+			Rectangle: 
+				pos: [0.66 * self.width, 0.925 * self.height]
+				size: [0.30 * self.width, 0.040 * self.height]
+				source: "wallet.png"
+
+			Rectangle: 
+				pos: [0.33 * self.width, 0.8967 * self.height]
+				size: [0.30 * self.width, 0.083 * self.height]
+				source: "title.png"
+			        
+			Rectangle: 
+				pos: [0.02 * self.width, 0.925 * self.height]
+				size: [0.05 * self.width,0.033 * self.height]
+				source: "bar_Pcoin.png"
+
+			Rectangle: 
+				pos: [0.69 * self.width, 0.925 * self.height]
+				size: [0.05 * self.width, 0.033 * self.height]
+				source: "timer.png"
+		BoxLayout:
+			x: 0.40 * self.width 
+			y: 0.445 * self.height
+			UpperBarLabel:
+				id: time
+				color: 0, 0, 0
+				text: '00:00:00'
+		BoxLayout:
+			x: -0.35 * self.width 
+			y: 0.445 * self.height
+			UpperBarLabel:
+				id: money
+				color: 0, 0, 0
+				text: '0000'
+		BottumButton:
+			id: story
+			x: 0.15 * root.width
+			y: 0
+			size: [0.15 * root.width, 0.12 * root.width]
+			size_hint: (None, None)
+			background_normal: "story.png"
+			background_down: "story_shadow.png"
+			on_press:
+				app.change_state(1)
+		BottumButton:
+			id: QR_code 
+			x: 0.46 * root.width
+			y: 0
+			size: [0.15 * root.width, 0.12 * root.width]
+			size_hint: (None, None)
+			background_normal: "treasure_black.png"
+			background_down: "treasure_color.png"
+			on_press:
+				app.change_state(2)
+		BottumButton:
+			id: Pcoin
+			x: 0.75 * root.width
+			y: 0
+			size: [0.15 * root.width, 0.12 * root.width]
+			size_hint: (None, None)
+			background_normal: "Pcoin.png"
+			background_down: "Pcoin_shadow.png"
+			on_press: 
+				#root.ids.canvas_state.source:"timer.png"
+				app.change_state(3)
+		LineButton:
+			id: p_line_1 
+			size: (0.1 * root.width, 0.08 * root.height)
+			size_hint: (None, None)
+			x: 0.22 * root.width
+			y: 0.18 * root.height
+			state: 'down'
+			on_release:
+				app.change_dot(1)
+		LineButton:
+			id: p_line_2
+			size: (0.1 * root.width, 0.08 * root.height)
+			size_hint: (None, None)
+			x: 0.005 * root.width
+			y: 0.39 * root.height
+			on_release:
+				app.change_dot(2)
+		LineButton:
+			id: p_line_3
+			size: (0.1 * root.width, 0.08 * root.height)
+			size_hint: (None, None)
+			x: 0.20 * root.width
+			y: 0.55 * root.height
+			on_release:
+				app.change_dot(2)
+		LineButton:
+			id: p_line_4
+			size: (0.1 * root.width, 0.08 * root.height)
+			size_hint: (None, None)
+			x: 0.13 * root.width
+			y: 0.715 * root.height
+			on_release:
+				app.change_dot(2)
+		LineButton:
+			id: p_line_5
+			size: (0.1 * root.width, 0.08 * root.height)
+			size_hint: (None, None)
+			x: 0.45 * root.width
+			y: 0.76 * root.height
+			on_release:
+				app.change_dot(2)
+		LineButton:
+			id: p_line_6
+			size: (0.1 * root.width, 0.08 * root.height)
+			size_hint: (None, None)
+			x: 0.55 * root.width
+			y: 0.65 * root.height
+			on_release:
+				app.change_dot(2)
+		LineButton:
+			id: p_line_7
+			size: (0.1 * root.width, 0.08 * root.height)
+			size_hint: (None, None)
+			x: 0.78 * root.width
+			y: 0.755 * root.height
+			on_release:
+				app.change_dot(2)
+		LineButton:
+			id: p_line_8
+			size: (0.1 * root.width, 0.08 * root.height)
+			size_hint: (None, None)
+			x: 0.90 * root.width
+			y: 0.59 * root.height
+			on_release:
+				app.change_dot(2)
+		LineButton:
+			id: p_line_9
+			size: (0.1 * root.width, 0.08 * root.height)
+			size_hint: (None, None)
+			x: 0.70 * root.width
+			y: 0.515 * root.height
+			on_release:
+				app.change_dot(2)
+		LineButton:
+			id: p_line_10
+			size: (0.1 * root.width, 0.08 * root.height)
+			size_hint: (None, None)
+			x: 0.75 * root.width
+			y: 0.45 * root.height
+			on_release:
+				app.change_dot(2)
+		LineButton:
+			id: p_line_11
+			size: (0.1 * root.width, 0.08 * root.height)
+			size_hint: (None, None)
+			x: 0.005 * root.width
+			y: 0.39 * root.height
+			on_release:
+				app.change_dot(2)
+		LineButton:
+			id: p_line_12
+			size: (0.1 * root.width, 0.08 * root.height)
+			size_hint: (None, None)
+			x: 0.005 * root.width
+			y: 0.39 * root.height
+			on_release:
+				app.change_dot(2)
+
+
+	Screen_Canvas:
+		name: 'Pcoin_page'
+
+
