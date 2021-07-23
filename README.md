@@ -14,15 +14,19 @@ My contribution is to develop the frontend as well as some of the backend, inclu
 ![image](https://github.com/YanChengWeiTony/Physics-Night/blob/main/imag.png)
 
 ### Requirements:
+
 kivy 2.0
+
 STHeiti Medium.ttc
 
 ### Usage:
 1. Download the apk file to use the app
-2. For the source code, one can download it by
+2. 
+3. For the source code, one can download it by
 ```
 git clone https://github.com/YanChengWeiTony/Physics-Night.git
 cd Physics-Night
  ```
+ 
  And run the PhysicsNight/main.py
  
