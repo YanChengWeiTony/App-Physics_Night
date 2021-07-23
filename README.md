@@ -1,4 +1,4 @@
-# [App] Physics Night
+# [App] Physics_Night
 The source code Link: https://drive.google.com/drive/folders/1ZoFCZxb5rwFo7u0AhRPImXd1UbTZjfHG?us
 
 
@@ -24,8 +24,8 @@ STHeiti Medium.ttc
 2. 
 3. For the source code, one can download it by
 ```
-git clone https://github.com/YanChengWeiTony/Physics-Night.git
-cd Physics-Night
+git clone https://github.com/YanChengWeiTony/App-Physics_Night.git
+cd App-Physics_Night
  ```
  
  And run the PhysicsNight/main.py
