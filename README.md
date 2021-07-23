@@ -21,8 +21,10 @@ STHeiti Medium.ttc
 
 ### Usage:
 1. Download the apk file to use the app
-2. 
-3. For the source code, one can download it by
+
+or
+
+2. For the source code, one can download it by
 ```
 git clone https://github.com/YanChengWeiTony/App-Physics_Night.git
 cd App-Physics_Night
