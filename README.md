@@ -10,7 +10,7 @@ The app is to assist the activity of the department (Physics, NTU). On 2017/4/8,
 
 My contribution is to develop the frontend as well as some of the backend, incluing the data processing and how to store data efficiently, and how to corporate with the activity, including putting advertisement for funding and using QR code to have fun.
 
-The project is collaborated with Che Chiang, Jun-Ting Guo, Yi Chen, and Jun-kai Huang.
+The first-version project is collaborated with Che Chiang, Jun-Ting Guo, and Jun-kai Huang, which only supported andriod devices. Yi Chen modified the version and pushed toward ios devices.
 
 <!-- ![image](https://github.com/YanChengWeiTony/Physics-Night/blob/main/imag.png) -->
 <img src="https://github.com/YanChengWeiTony/Physics-Night/blob/main/imag.png" width="600" height="400">
